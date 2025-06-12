@@ -109,34 +109,6 @@ for db_idx = 1:length(databases)
 end
 
 
-function J = compute_fisher_criterion(Z, y)
-    % Calcula el criterio de Fisher dado un conjunto proyectado Z y etiquetas y
 
-    classes = unique(y);
-    num_classes = numel(classes);
-    [m, k] = size(Z);
-
-    mu_global = mean(Z, 1);
-    S_B = zeros(k, k);
-    S_W = zeros(k, k);
-
-    for i = 1:num_classes
-        idx = (y == classes(i));
-        Z_i = Z(idx, :);
-        mu_i = mean(Z_i, 1);
-        n_i = size(Z_i, 1);
-
-        % Between-class scatter
-        diff_mu = (mu_i - mu_global)';
-        S_B = S_B + n_i * (diff_mu * diff_mu');
-
-        % Within-class scatter
-        Z_centered = Z_i - mu_i;
-        S_W = S_W + (Z_centered') * Z_centered;
-    end
-
-    % Criterio de Fisher traza-normalizado
-    J = trace(S_B) / (trace(S_W) + eps);  % eps para evitar división por 0
-end
 
 

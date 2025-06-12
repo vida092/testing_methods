@@ -27,7 +27,7 @@ function fitness = fitness_function(w, SB, SW_Cl, criterion, d)
     % Calcular fitness basado en el criterio seleccionado
     if strcmpi(criterion, 'determinant')
         % Determinante de las matrices proyectadas
-        if det(SW_proj)~= 0;
+        if det(SW_proj)~= 0
             fitness = det(SB_proj) / det(SW_proj);
         else
             fitness = 0;

@@ -2,7 +2,7 @@ function [P, convergence, status, err_msg] = glda(X, y, dim)
     % GLDA: optimización de proyección basada en SB y SW usando determinante
     [m, d] = size(X);
     num_individuals = 30;
-    num_generations = 500;
+    num_generations = 1000;
     crossover_prob = 0.9;
     tol = 1e-10;
 
@@ -87,4 +87,3 @@ function [SB, SW] = calculate_scatter_matrices(X, y)
         SW = SW + centered' * centered;
     end
 end
-
