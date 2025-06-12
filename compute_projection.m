@@ -12,7 +12,9 @@ function [P, convergence, status, err_msg] = compute_projection(method_name, X, 
                 convergence = [];
 
             case 'PCA_LDA'
-                [P, status, err_msg] = pca_lda_projection(X, y, dim_target);
+                P = pca_lda_projection(X, y, dim_target);
+                status = "ok";
+                err_msg = "";
                 convergence = [];
 
             case 'GLDA'

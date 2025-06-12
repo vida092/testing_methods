@@ -1,10 +1,10 @@
 clear
 clc
 train_ratio = 0.7;
-num_reps = 30;
+num_reps = 2;
 methods = {'LDA','PCA_LDA','GLDA',  'GPDA'};
 dim_target = 3;  % o 3
-databases={'golub_cleaned'};
+databases={'iris'};
 
 for db_idx = 1:length(databases)
     database = databases{db_idx};
